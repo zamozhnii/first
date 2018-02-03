@@ -1,3 +1,3 @@
 (function() {
-    console.log('Hello Git');
+    console.log('t');
 })();
