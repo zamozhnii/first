@@ -46,10 +46,14 @@ var blockDevelop = d.querySelector('#develop');
 var blockManag = d.querySelector('#manag');
 var blockDocuments = d.querySelector('#documents');
 var blockCouns = d.querySelector('#counsel');
+var blockOfferTit = d.querySelector('#offerTit');
+var clearBlock = d.querySelector('#clear');
+var searchinBlock = d.querySelector('#searchin');
 
 ////////////////////////////////////////////////////////////
 
-function myMoveServiceAll(block, value, xPosition, posIncrement) {
+function myMoveBlocks(block, value, posIncrement) {
+    var xPosition = 0;
     var id = setInterval(function() {
         if (xPosition == value) {
             clearInterval(id);
@@ -59,8 +63,7 @@ function myMoveServiceAll(block, value, xPosition, posIncrement) {
         }
     }, 1);
 }
-
-function myOpacityService(block, value) {
+function myOpacityBlocks(block, value) {
     var opacity = 0;
     var id = setInterval(function() {
         if (opacity == value) {
@@ -70,50 +73,21 @@ function myOpacityService(block, value) {
             block.style.opacity = opacity; 
         }
     }, 1);
-
-
+}
+function myRotateBlocks(block) {
+    var yPostion = 0;
+    var id = setInterval(function() {
+        if (yPostion == 720) {
+            clearInterval(id);
+        } else {
+            yPostion+=5;
+            block.style.transform = 'rotateY(' + yPostion + 'deg)'; 
+        }
+    }, 1);
 }
 ///////////////////////////////////////////////////////////////////
-
-
-
-
     /** animation service **/    
 
-    /** animation our-offer title **/        
-    function myMoveOffer() {
-        var blockOfferTit = d.querySelector('#offerTit');
-        var xPosition = 0;
-        var opacit = 0;
-        var id = setInterval(action, 1);
-        function action() {
-            if (xPosition == 500) {
-                clearInterval(id);
-            } else {
-                xPosition+=5;
-                opacit+=0.01;
-                blockOfferTit.style.opacity = opacit;
-                blockOfferTit.style.transform = 'translateY(' + -(xPosition) + 'px)';
-            }
-        }
-    }
-    /** animation our-offer blocks **/
-    function myMoveBlocks() {
-        var clearBlock = d.querySelector('#clear');
-        var searchinBlock = d.querySelector('#searchin');
-        var xPosition = 0;
-        var id = setInterval(action, 1);
-        function action() {
-            if(xPosition == 720) {
-                clearInterval(id);
-            } else {
-                xPosition+=5;
-                clearBlock.style.transform = 'rotateY(' + xPosition + 'deg)';
-                searchinBlock.style.transform = 'rotateY(' + -(xPosition) + 'deg)';
-            }
-        }
-
-    }
     function myMoveBlocksPN() {
         var professBlock = d.querySelector('#profess');
         var negotBlock = d.querySelector('#negot');
@@ -166,35 +140,36 @@ function myOpacityService(block, value) {
         window.addEventListener('scroll', function() {
             var pageY = window.pageYOffset || html.scrollTop;
             if(pageY > 600 && k < 1) {
-                myMoveServiceAll(blockNegot, 500, 0, 5);
-                myMoveServiceAll(blockDevelop, -500, 0, -5);
-                myOpacityService(blockManag, 1);
-                myOpacityService(blockDocuments, 1);
-                myOpacityService(blockCouns, 1);
-
-
-
-                k=1;
+                myMoveBlocks(blockNegot, 500, 5);
+                myMoveBlocks(blockDevelop, -500, -5);
+                myOpacityBlocks(blockManag, 1);
+                myOpacityBlocks(blockDocuments, 1);
+                myOpacityBlocks(blockCouns, 1);
+                k++;
             } 
             if (pageY > 1000 && k < 2) {
-                myMoveOffer();
-                k=2;
+                myOpacityBlocks(blockOfferTit, 1);
+                k++;
             }
             if (pageY > 1200 && k < 3) {
-                myMoveBlocks();
-                k = 3;
+                myRotateBlocks(clearBlock);
+                myRotateBlocks(searchinBlock);
+                myOpacityBlocks(clearBlock, 1);
+                myOpacityBlocks(searchinBlock, 1);
+
+                k++;
             }
             if(pageY > 1600 && k < 4) {
                 myMoveBlocksPN();
-                k = 4;
+                k++;
             }
             if(pageY > 1900 && k < 5) {
                 myMoveBlocksCG();
-                k = 5;
+                k++;
             }
             if(pageY > 2000 && k < 6) {
                 myMoveBlocksLast();
-                k = 6;
+                k++;
             }
         });
 

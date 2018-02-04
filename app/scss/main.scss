@@ -513,14 +513,10 @@ h1, h2, h3, h4, h5, h6, p {
         position: relative;
         right: -500px;
     }
+    #offerTit,
     #manag,
     #documents,
     #counsel {
-        opacity: 0;
-    }
-    #offerTit {
-        position: relative;
-        bottom: -500px;
         opacity: 0;
     }
     #profess {
@@ -539,6 +535,8 @@ h1, h2, h3, h4, h5, h6, p {
         position: relative;
         bottom: -500px;
     }
+    #searchin,
+    #clear,
     #support {
         opacity: 0;
     }
