@@ -1,3 +1,38 @@
+@font-face {
+    font-family: 'proximanovabold';
+    src: url('../fonts/ProximaNovaBold/proximanova-bold.eot');
+    src: url('../fonts/ProximaNovaBold/proximanova-bold.eot') format('eot'), 
+    url('../fonts/ProximaNovaBold/proximanova-bold.ttf') format('truetype'),
+    url('../fonts/ProximaNovaBold/proximanova-bold.svg') format('svg'),
+    url('../fonts/ProximaNovaBold/proximanova-bold.woff') format('woff');
+}
+@font-face {
+    font-family: 'proximanovaextrabold';
+    src: url('../fonts/ProximaNovaExtraBold/proximanova-extrabold.eot');
+    src: url('../fonts/ProximaNovaExtraBold/proximanova-extrabold.eot') format('eot'), 
+    url('../fonts/ProximaNovaExtraBold/proximanova-extrabold.ttf') format('truetype'),
+    url('../fonts/ProximaNovaExtraBold/proximanova-extrabold.svg') format('svg'),
+    url('../fonts/ProximaNovaExtraBold/proximanova-extrabold.woff') format('woff');
+}
+@font-face {
+    font-family: 'proximanovasemibold';
+    src: url('../fonts/ProximaNovaExtraBold/proximanova-semibold.eot');
+    src: url('../fonts/ProximaNovaExtraBold/proximanova-semibold.eot') format('eot'), 
+    url('../fonts/ProximaNovaExtraBold/proximanova-semibold.ttf') format('truetype'),
+    url('../fonts/ProximaNovaExtraBold/proximanova-semibold.svg') format('svg'),
+    url('../fonts/ProximaNovaExtraBold/proximanova-semibold.woff') format('woff');
+}
+$novaBold: 'proximanovabold';
+$novaExtraBold: 'proximanovaextrabold';
+$novaSemiBold: 'proximanovasemibold';
+$container: 1550px;
+$circleW: 818px;
+$lineHeigh: 100%;
+$lineDist: 425px;
+$linkHover: #20aa97;
+$descrColor: #585858;
+
+
 * {
     box-sizing: border-box;
 }
@@ -26,4 +61,226 @@ a {
 
 h1, h2, h3, h4, h5, h6, p {
     margin-top: 0;
+}
+
+.container {
+    width: $container;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column wrap;
+}
+/*
+*
+** Autoloader
+*
+*/
+
+.modal__wrap {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, .5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+    .modal__img-wrap {
+        width: 300px;
+    }
+    .modal__img {
+        width: 100%;
+        animation: modal__img 2s infinite ease-in-out;
+    }
+    @keyframes modal__img {
+        0% {transform:rotate(-45deg)}
+        50%{transform:rotate(-135deg)}
+        100%{transform:rotate(-225deg)}}
+
+/*
+*
+** Background
+*
+*/
+.background__circle-four,
+.background__circle-three,
+.background__circle-two,
+.background__circle-one {
+    border-radius: 50%;
+    position: absolute;
+    z-index: -2;      
+}
+.background__circle-one {
+    background-color: rgba(32, 170, 151, .1);
+    left: 85%;
+    top: -21px;
+    width: 389px;
+    height: 389px;
+}
+
+.background__circle-two {
+    background-color: rgba(249, 249, 249, .4);
+    left: -19%;
+    top: 513px;
+    width: $circleW;
+    height: $circleW;
+  }
+.background__circle-three {
+    background-color: rgb(253, 254, 254);
+    left: -19%;
+    top: 2027px;
+    width: $circleW;
+    height: $circleW;
+}
+.background__circle-four {
+    background-color: rgb(252, 254, 253);
+    left: 77%;
+    top: 2272px;
+    width: 583px;
+    height: 583px;
+}
+
+.background__line-vert-four,
+.background__line-vert-three,
+.background__line-vert-two,
+.background__line-vert-one {
+    border-width: 1px;
+    border-color: rgb(232, 232, 232);
+    border-style: dotted;
+    position: absolute;
+    top: 0;
+    height: $lineHeigh;
+    z-index: -1;
+}
+.background__line-vert-one {
+    left: 109px;
+}
+.background__line-vert-two {
+    left: 109px + $lineDist;
+}
+.background__line-vert-three {
+    left: 109px + $lineDist*2;
+}
+.background__line-vert-four {
+    left: 109px + $lineDist*3;
+}
+
+.background__line-horizont-two,
+.background__line-horizont-one {
+    border-width: 1px;
+    border-color: rgb(232, 232, 232);
+    border-style: dotted;
+    position: absolute;
+    z-index: -1;
+}
+.background__line-horizont-one {
+    left: 0;
+    top: 107px;
+    width: $lineHeigh;
+}
+.background__line-horizont-two {
+    left: 99px;
+    top: 868px;
+    width: 1716px;
+}
+
+/*
+*
+** Navigation 
+*
+*/
+
+.navigation__logo-links-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 33px;
+    
+    .navigation__logo-descr-wrap {
+        display: flex;
+        margin: 0;
+
+        .navigation__logo-descr {
+            width: 56px;
+
+            .navigation__logo-img {
+                width: 100%;
+            }
+        }
+        .navigation__descr-wrap {
+            width: 100px;
+            padding-left: 12px;
+
+            .navigation__descr-item {
+                font-family: $novaExtraBold;
+                font-size: 20px;
+                color: #000;
+                text-transform: lowercase;
+                line-height: 22px;
+
+                small {
+                    font-size: 30px;
+                    line-height: 10px;
+                }
+            }
+        }
+    }
+    .navigation__links-list {
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+        padding: 0;
+
+        .navigation__links-item {
+            margin-right: 54px;
+
+            .navigation__links-link-item {
+                display: block;
+                text-decoration: none;
+                font-family: $novaExtraBold;
+                font-size: 16px;
+                color: #000;
+                text-transform: lowercase;
+                padding: 13px 1px 13px 0;
+                position: relative;
+
+                small {
+                    font-size: 24px;
+                    line-height: 10px;
+                }
+            }
+            .navigation__links-link-item-current {
+                color: $linkHover;
+            }
+            .navigation__links-link-item:before,
+            .navigation__links-link-item-current:before {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 3px;
+                background: #000;
+                top: 0;
+                left: 0;
+                transform: translateX(0%);
+                transition: width .2s ease-in-out;
+            }
+                .navigation__links-link-item-current:before {
+                    width: 25%;
+                }
+            
+            .navigation__links-link-item:hover {
+                color: $linkHover;
+            }
+            .navigation__links-link-item:hover:before {
+                width: 100%;
+            }
+        }
+        .navigation__links-item:last-child {
+            margin-right: 0;
+        }
+    }
+    .navigation__links-list-btn {
+        display: none;
+    }
 }
