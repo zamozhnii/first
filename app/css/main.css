@@ -24,6 +24,7 @@
 **/
 html,
 body {
+  overflow-x: hidden;
   width: 100%;
   min-height: 100vh;
   display: -webkit-box;
@@ -34,7 +35,8 @@ body {
   -webkit-box-direction: normal;
   -webkit-flex-flow: column nowrap;
       -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap; }
+          flex-flow: column nowrap;
+  position: relative; }
 
 .maincontent {
   -webkit-box-flex: 1;
