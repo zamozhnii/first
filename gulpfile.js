@@ -38,16 +38,12 @@ gulp.task('scripts', function() {
         .pipe(browserSync.reload({stream: true})); 
 });
 
-
 gulp.task('css-libs', gulp.parallel('sass', function() {
     return gulp.src('app/libs/normalize/*.css') 
         .pipe(cssnano())
         .pipe(rename('libs.css'))
         .pipe(gulp.dest('app/css')); 
 }));
-
-
-
 
 gulp.task('watch', gulp.parallel('browser-sync', 'sass', 'scripts', function() {
     gulp.watch('app/scss/**/*.scss', gulp.series('sass')); 
@@ -83,7 +79,6 @@ gulp.task('build', gulp.parallel('clean', 'img', 'sass', 'scripts', function() {
 
     var buildHtml = gulp.src('app/*.html') 
     .pipe(gulp.dest('dist'));
-
 }));
 
 gulp.task('clear', function () {
