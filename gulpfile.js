@@ -48,7 +48,7 @@ gulp.task('css-libs', gulp.parallel('sass', function() {
 
 
 
-gulp.task('watch', gulp.parallel('browser-sync', 'sass', function() {
+gulp.task('watch', gulp.parallel('browser-sync', 'sass', 'scripts', function() {
     gulp.watch('app/scss/**/*.scss', gulp.series('sass')); 
     gulp.watch('app/*.html', browserSync.reload() ); 
     gulp.watch('app/js/**/*.js', gulp.series('scripts'));  
