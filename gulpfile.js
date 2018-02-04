@@ -9,7 +9,8 @@ const gulp = require('gulp'),
       imagemin = require('gulp-imagemin'), 
       pngquant = require('imagemin-pngquant'), 
       cache = require('gulp-cache'),
-      autoprefixer = require('gulp-autoprefixer');
+      autoprefixer = require('gulp-autoprefixer'),
+      babel = require('gulp-babel');
 
 gulp.task('sass', function(){ 
     return gulp.src('app/scss/**/*.scss') 

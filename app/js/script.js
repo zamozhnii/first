@@ -1,20 +1,35 @@
 window.addEventListener('DOMContentLoaded', init);
 
 function init() {
-    var d = document,
-        html = d.documentElement,
-        widthScreen = html.clientWidth,
-        links = d.querySelector('.navigation__links-list');
 
-    
     /** autoloader off **/
     setInterval( function() {
         var modal = d.querySelector('.modal__wrap');
         modal.style.display = 'none';
         html.style.overflowY = 'visible';
     },3000);
-    /** switch links **/
 
+    var d = document,
+        html = d.documentElement,
+        widthScreen = html.clientWidth,
+        links = d.querySelector('.navigation__links-list');
+
+    /** animation blocks **/
+    var blockNegot = d.querySelector('#negotiations'),
+        blockDevelop = d.querySelector('#develop'),
+        blockManag = d.querySelector('#manag'),
+        blockDocuments = d.querySelector('#documents'),
+        blockCouns = d.querySelector('#counsel'),
+        blockOfferTit = d.querySelector('#offerTit'),
+        clearBlock = d.querySelector('#clear'),
+        searchinBlock = d.querySelector('#searchin'),
+        professBlock = d.querySelector('#profess'),
+        negotBlock = d.querySelector('#negot'),
+        confidentBlock = d.querySelector('#confident'),
+        guarantBlock = d.querySelector('#guarant'),
+        supportBlock = d.querySelector('#support');
+    
+    /** switch links -- tabs **/
     function tabs (links) {
         links.addEventListener('click', function(event) {
             event.preventDefault();
@@ -28,7 +43,7 @@ function init() {
     };
     tabs(links);
 
-    /** menu open button **/
+    /** menu open button on telephone **/
     var btnMenuMob = d.querySelector('.navigation__links-list-btn');
     btnMenuMob.addEventListener('click', function(event) {
         event.preventDefault();
@@ -40,98 +55,52 @@ function init() {
         }
     });
 
-//////////////////////////////////////////////////////////////////
-var blockNegot = d.querySelector('#negotiations');
-var blockDevelop = d.querySelector('#develop');
-var blockManag = d.querySelector('#manag');
-var blockDocuments = d.querySelector('#documents');
-var blockCouns = d.querySelector('#counsel');
-var blockOfferTit = d.querySelector('#offerTit');
-var clearBlock = d.querySelector('#clear');
-var searchinBlock = d.querySelector('#searchin');
-
-////////////////////////////////////////////////////////////
-
-function myMoveBlocks(block, value, posIncrement) {
-    var xPosition = 0;
-    var id = setInterval(function() {
-        if (xPosition == value) {
-            clearInterval(id);
-        } else {
-            xPosition+=posIncrement;
-            block.style.transform = 'translateX(' + xPosition + 'px)'; 
-        }
-    }, 1);
-}
-function myOpacityBlocks(block, value) {
-    var opacity = 0;
-    var id = setInterval(function() {
-        if (opacity == value) {
-            clearInterval(id);
-        } else {
-            opacity+=0.01;
-            block.style.opacity = opacity; 
-        }
-    }, 1);
-}
-function myRotateBlocks(block) {
-    var yPostion = 0;
-    var id = setInterval(function() {
-        if (yPostion == 720) {
-            clearInterval(id);
-        } else {
-            yPostion+=5;
-            block.style.transform = 'rotateY(' + yPostion + 'deg)'; 
-        }
-    }, 1);
-}
-///////////////////////////////////////////////////////////////////
-    /** animation service **/    
-
-    function myMoveBlocksPN() {
-        var professBlock = d.querySelector('#profess');
-        var negotBlock = d.querySelector('#negot');
+    /** functions for animation */
+    function myMoveBlocks(block, value, posIncrement) {
         var xPosition = 0;
-        var id = setInterval(action, 1);
-        function action() {
-            if (xPosition == 900) {
+        var id = setInterval(function() {
+            if (xPosition == value) {
                 clearInterval(id);
             } else {
-                xPosition+=9;
-                professBlock.style.transform = 'translateX(' + xPosition + 'px)'; 
-                negotBlock.style.transform = 'translateX(' + -(xPosition) + 'px)';
+                xPosition+=posIncrement;
+                block.style.transform = 'translateX(' + xPosition + 'px)'; 
             }
-        }
+        }, 1);
     }
-    function myMoveBlocksCG() {
-        var confidentBlock = d.querySelector('#confident');
-        var guarantBlock = d.querySelector('#guarant');
-        var xPosition = 0;
-        var id = setInterval(action, 1);
-        function action() {
-            if (xPosition == 500) {
+    function myOpacityBlocks(block, value) {
+        var opacity = 0;
+        var id = setInterval(function() {
+            if (opacity == value) {
                 clearInterval(id);
             } else {
-                xPosition+=5;
-                confidentBlock.style.transform = 'translateY(' + -(xPosition) + 'px)'; 
-                guarantBlock.style.transform = 'translateY(' + -(xPosition) + 'px)';
+                opacity+=0.01;
+                block.style.opacity = opacity; 
             }
-        }
-    }    
-    function myMoveBlocksLast() {
-        var supportBlock = d.querySelector('#support');
-        var opacit = 0;
-        var id = setInterval(action, 1);
-        function action() {
-            if (opacit == 1) {
-                clearInterval(id);
-            } else {
-                opacit+=0.01;
-                supportBlock.style.opacity = opacit; 
-            }
-        }
+        }, 1);
     }
-    
+    function myRotateBlocks(block) {
+        var yPostion = 0;
+        var id = setInterval(function() {
+            if (yPostion == 720) {
+                clearInterval(id);
+            } else {
+                yPostion+=5;
+                block.style.transform = 'rotateY(' + yPostion + 'deg)'; 
+            }
+        }, 1);
+    }
+    function myUpBlocks(block) {
+        var yPostion = 0;
+        var id = setInterval(function() {
+            if (yPostion == -500) {
+                clearInterval(id);
+            } else {
+                yPostion+=-5;
+                block.style.transform = 'translateY(' + yPostion + 'px)'; 
+            }
+        }, 1);
+    }
+
     /** event scroll **/
     if(widthScreen > 1250 && widthScreen < 2000) {
         
@@ -156,19 +125,20 @@ function myRotateBlocks(block) {
                 myRotateBlocks(searchinBlock);
                 myOpacityBlocks(clearBlock, 1);
                 myOpacityBlocks(searchinBlock, 1);
-
                 k++;
             }
             if(pageY > 1600 && k < 4) {
-                myMoveBlocksPN();
+                myMoveBlocks(professBlock, 900, 9);
+                myMoveBlocks(negotBlock, -900, -9);
                 k++;
             }
             if(pageY > 1900 && k < 5) {
-                myMoveBlocksCG();
+                myUpBlocks(confidentBlock);
+                myUpBlocks(guarantBlock);
                 k++;
             }
             if(pageY > 2000 && k < 6) {
-                myMoveBlocksLast();
+                myOpacityBlocks(supportBlock, 1);
                 k++;
             }
         });
