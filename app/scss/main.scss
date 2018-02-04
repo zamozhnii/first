@@ -284,3 +284,262 @@ h1, h2, h3, h4, h5, h6, p {
         display: none;
     }
 }
+
+/*
+*
+** Maincontent - Service
+*
+*/
+
+.maincontent {
+    display: flex;
+    flex-wrap: wrap;
+
+    .service__title-descr-figure-wrap {
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+            
+            .service__title-descr-wrap {
+                display: flex;
+                flex-flow: column;
+                text-align: center;
+                align-items: center;
+             
+        .service__title {
+            font-family: $novaExtraBold;
+            font-size: 100px;
+            text-transform: lowercase;
+            color: #000;
+            padding-top: 135px;
+
+            small {
+                color: $linkHover;
+                font-size: 100px;
+            }
+        }
+        .service__descr-identify {
+            font-family: $novaExtraBold;
+            font-size: 20px;
+            color: $descrColor;
+            width: 940px;
+            text-align: center;
+            line-height: 36px;
+            padding-top: 89px;
+        }
+        .service__descr-identify-we {
+            padding-top: 5px;
+            font-family: $novaExtraBold;
+            font-size: 20px;
+            color: $descrColor;
+            width: 940px;
+            text-align: center;
+            line-height: 36px;
+        }
+    }    
+        .service__figure-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+
+            .service__img-descr-wrap {
+                margin: 114px 0 0 0;
+                display: flex;
+                flex-flow: column nowrap;
+                width: 260px;
+                text-align: center;
+                align-items: center;
+
+                .service__img-wrap {
+                    width: 70px;
+
+                    .service__img-item {
+                        width: 95%;
+                    }
+                    .service__img-item:hover {
+                        width: 90px;
+                        transform: rotateX(360deg);
+                        transition: width .4s ease-in-out,
+                                    transform .4s ease;
+                    }
+                    
+                }
+                .service__descr-wrap {
+                    padding-top: 42px;
+
+                    .service__descr-title {
+                        font-family: $novaExtraBold;
+                        font-size: 20px;
+                        color: #000;
+                        line-height: 24px;
+                    }
+                    .service__descr-item {
+                        font-family: $novaBold;
+                        font-size: 18px;
+                        color: $descrColor;
+                        width: 260px;
+                        line-height: 24px;
+                    }
+                }
+            }
+        }
+    }
+}
+/*
+*
+** Maincontent - Our-offer
+*
+*/
+.our-offer__title-figure-wrap {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+
+    .our-offer__title-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        
+        .our-offer__title {
+            font-family: $novaExtraBold;
+            font-size: 60px;
+            color: #000;
+            text-transform: lowercase;
+            padding-top: 128px;
+
+            small {
+                color: $linkHover;
+                font-size: 60px;
+            }
+        }
+    }
+    
+    .our-offer__figure-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 30px;
+
+        .our-offer__img-descr-wrap {
+            display: flex;
+            flex-flow: column wrap;
+            align-items: flex-start;
+            margin: 0;
+            width: 600px;
+            margin: 60px 0 0 75px;
+
+            .our-offer__img-wrap {
+                width: 107px;
+                height: 107px;
+                background: #fbfdfd;
+                border-radius: 50%;
+                text-align: center;
+
+                .our-offer__img-item {
+                    padding: 28px 20px 25px 20px;
+                }
+                .our-offer__img-item:hover {
+                    width: 100px;
+                    transform: rotateX(360deg);
+                    transition: width .5s ease-in-out,
+                                transform .5s ease-in-out,
+                }
+            }
+            .our-offer__descr-wrap {
+                display: flex;
+                flex-flow: column wrap;
+                padding-top: 42px;
+
+                .our-offer__descr-title {
+                    font-family: $novaExtraBold;
+                    font-size: 20px;
+                    color: #000;
+                }
+                .our-offer__descr-item {
+                    font-family: $novaBold;
+                    font-size: 17px;
+                    color: $descrColor;
+                    padding-top: 6px;
+                    line-height: 26px;
+                    width: 492px;
+                }
+            }
+        }
+    }
+}
+/*
+*
+** Footer
+*
+*/
+.footer__Sponge-DD {
+    margin-top: 125px;
+    background: #000;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    .footer__Sponge-DD-wrap {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        padding: 50px 0 70px 0;
+
+        .footer__descr {
+            font-family: $novaSemiBold;
+            font-size: 15px;
+            line-height: 22px;
+            color: #fbfdfd;
+        }
+        .footer__title {
+            font-family: $novaExtraBold;
+            font-size: 14px;
+            color: $linkHover;
+            line-height: 22px;
+        }
+    }
+    
+}
+/**
+*
+** works with JS
+*
+**/
+@media screen and(min-width:1251px) and (max-width:2000px) {
+    #negotiations {
+        position: relative;
+        left: -500px;
+    }
+    #develop {
+        position: relative;
+        right: -500px;
+    }
+    #manag,
+    #documents,
+    #counsel {
+        opacity: 0;
+    }
+    #offerTit {
+        position: relative;
+        bottom: -500px;
+        opacity: 0;
+    }
+    #profess {
+        position: relative;
+        left: -900px;
+    }
+    #negot {
+        position: relative;
+        right: -900px;
+    }
+    #confident {
+        position: relative;
+        bottom: -500px;
+    }
+    #guarant {
+        position: relative;
+        bottom: -500px;
+    }
+    #support {
+        opacity: 0;
+    }
+}
